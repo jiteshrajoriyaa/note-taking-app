@@ -8,10 +8,10 @@ export const signup = async (req: Request, res: Response) => {
     try {
 
         const { name, email, dob } = req.body;
-        if(!name) return res.status(400).json({
+        if (!name) return res.status(400).json({
             messgae: "Name required"
         })
-        
+
         validateEmailSignUp(email, dob);
 
         const existingUser = await User.findOne({
@@ -26,7 +26,9 @@ export const signup = async (req: Request, res: Response) => {
 
         const otp: string = generateOTP();
         await saveOTP(email, otp)
+        console.log("Before sending email");
         await sendEmail(email, 'Your OTP Code', `Your OTP is ${otp}. The OTP will expire in 2 minutes`)
+        console.log("Before sending email");
 
         return res.json({
             msg: "OTP sent to your email Successfully"
