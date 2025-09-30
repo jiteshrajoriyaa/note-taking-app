@@ -28,7 +28,7 @@ export const signup = async (req: Request, res: Response) => {
         await saveOTP(email, otp)
         console.log("Before sending email");
         await sendEmail(email, 'Your OTP Code', `Your OTP is ${otp}. The OTP will expire in 2 minutes`)
-        console.log("Before sending email");
+        console.log("After sending email");
 
         return res.json({
             msg: "OTP sent to your email Successfully"
