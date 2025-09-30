@@ -150,7 +150,7 @@ export const Signup = () => {
                                 <div className="flex gap-2 flex-col">
                                     <Link
                                         className="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700 transition text-center"
-                                        to={`${BACKEND_URL}/auth/google`}
+                                        to={`https://note-taking-app-vert-three.vercel.app/auth/google`}
                                     >
                                         Signup with Google
                                     </Link>
