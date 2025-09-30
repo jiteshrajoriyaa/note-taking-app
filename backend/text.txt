@@ -1,0 +1,6 @@
+1. Display profile on dashboard,
+2. make a page for createNote simple
+3. show notes on dashboard and delete simple just beside it
+4. ask first do you want to delete
+5. Add beauty
+6. Add responsiveness
