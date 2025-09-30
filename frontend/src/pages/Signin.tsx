@@ -61,10 +61,9 @@ export const Signin = () => {
             const payload = { email: form.email , otp }
             const response = await axios.post(`${BACKEND_URL}/auth/verify-otp-signin`, payload)
             const token = response.data.token
+            const user = response.data.user
+            
             localStorage.setItem('token', "Bearer " + token)
-             localStorage.setItem('token', "Bearer " + token)
-            const decoded = jwtDecode<TokenPayload>(token);
-            const user = {id: decoded.id, name: decoded.name}
             localStorage.setItem('user', JSON.stringify(user))
             
             navigate('/dashboard')

@@ -68,8 +68,9 @@ export const Signup = () => {
             const payload = { ...form, otp }
             const response = await axios.post(`${BACKEND_URL}/auth/verify-otp-signup`, payload)
             const token = response.data.token
+            const user = response.data.user
             localStorage.setItem('token', "Bearer " + token)
-            localStorage.setItem('user', JSON.stringify(form))
+            localStorage.setItem('user', JSON.stringify(user))
             navigate('/dashboard')
         } catch (e: any) {
             setErrors(prev => ({ ...prev, general: e.response?.data?.message || "Invalid OTP" }))

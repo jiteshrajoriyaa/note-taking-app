@@ -25,7 +25,8 @@ export const verifyOTPSignup = async (req: Request, res: Response) => {
         const token = jwt.sign({ id: user._id }, process.env.JWT_STRING!, {expiresIn: '7d'})
         return res.json({
             msg: "User created successfully",
-            token
+            token,
+            user
         })
 
     } catch (e) {
@@ -51,10 +52,11 @@ export const verifyOTPSignin = async (req: Request, res: Response) => {
         })
 
         const user = await User.findOne({email})
-        const token = jwt.sign({ id: user?._id, name: user?.name }, process.env.JWT_STRING!, {expiresIn: '7d'})
+        const token = jwt.sign({ id: user?._id }, process.env.JWT_STRING!, {expiresIn: '7d'})
         return res.json({
             msg: "User logged in successfully",
-            token
+            token,
+            user
         })
 
     } catch (e) {
