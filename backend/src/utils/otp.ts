@@ -4,6 +4,10 @@ export const generateOTP = () => Math.floor(100000 + Math.random()*900000).toStr
 
 export const saveOTP = async (email: string, otp: string) => {    
     try{
+        const existOTP = await OTP.findOne({email})
+        if(existOTP){
+            throw new Error("OTP already exist")
+        }
         await OTP.create({
             email,
             otp
