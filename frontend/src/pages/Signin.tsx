@@ -5,13 +5,6 @@ import Input from "../components/Innput"
 import Button from "../components/Button"
 import { Link, useNavigate } from "react-router-dom"
 import type { ErrorState, FormState } from "./Signup"
-import { jwtDecode } from "jwt-decode"
-interface TokenPayload {
-  id: string;
-  name: string;
-  exp: number;
-  iat: number;
-}
 
 export const Signin = () => {
     const [form, setForm] = useState<FormState>({ email: "" })
