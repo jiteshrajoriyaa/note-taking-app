@@ -56,7 +56,7 @@ export const Dashboard: React.FC = () => {
                     Authorization: token
                 }
             })
-            window.location.reload();
+            setNotes(notes.filter(note => note._id !== noteId));
         } catch (e) {
             console.error(e)
         }
@@ -103,9 +103,9 @@ export const Dashboard: React.FC = () => {
                                                 <div className="truncate flex-1">{note.title}</div>
                                                 <div className="truncate flex-1 font-normal">{note.description}</div>
                                             </div>
-                                            <button 
-                                            onClick={() => handleDeleteNote(note._id)}
-                                            className="ml-4 flex-shrink-0 cursor-pointer">
+                                            <button
+                                                onClick={() => handleDeleteNote(note._id)}
+                                                className="ml-4 flex-shrink-0 cursor-pointer">
                                                 <Trash2 className="w-5 h-5" />
                                             </button>
                                         </div>
