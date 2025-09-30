@@ -1,1 +1,1 @@
-{"root":["./src/index.ts"],"version":"5.6.3"}
+{"root":["./src/server.ts","./src/config/googlestrategy.ts","./src/controllers/createnode.ts","./src/controllers/deletenote.ts","./src/controllers/getnotes.ts","./src/controllers/resendotp.ts","./src/controllers/signin.ts","./src/controllers/signup.ts","./src/controllers/verify-otp.ts","./src/middlewares/authorization.ts","./src/models/index.ts","./src/routes/auth.ts","./src/routes/note.ts","./src/utils/mail.ts","./src/utils/otp.ts","./src/utils/validation.ts"],"version":"5.9.2"}
