@@ -1,10 +1,10 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import express from 'express'
 import cors from 'cors'
-import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import { authRouter } from './routes/auth'
 import { noteRouter } from './routes/note'
-dotenv.config()
 import './config/googleStrategy'
 
 const app = express()

@@ -1,29 +1,20 @@
-import nodemailer from 'nodemailer'
+import { Resend } from 'resend';
 
-export const sendEmail = async (to: string, subject: string, text: string) =>{
-    const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: Number(process.env.SMTP_PORT),
-        secure: false,
-        auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS
-        }
-    })
+if (!process.env.RESEND_API_KEY) {
+  throw new Error("RESEND_API_KEY not set in environment!");
+}
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-    const mailOptions = {
-        from: process.env.SMTP_USER,
-        to,
-        subject,
-        text
-    }
-
-    try{
-        await transporter.sendMail(mailOptions)
-        console.log(`Email sent to ${to}`)
-
-    }catch(e){
-        console.error('Error sending mail', e)
-        throw new Error('Could not send email')
-    }
+export async function sendEmail(to: string, subject: string, text: string) {
+  try {
+    await resend.emails.send({
+      from: "onboarding@resend.dev",
+      to,
+      subject,
+      html: `<p>${text}</p>`
+    });
+    console.log("Email sent successfully");
+  } catch (err) {
+    console.error("Email failed:", err);
+  }
 }

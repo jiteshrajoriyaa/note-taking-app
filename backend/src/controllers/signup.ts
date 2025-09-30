@@ -26,11 +26,8 @@ export const signup = async (req: Request, res: Response) => {
 
         const otp: string = generateOTP();
         await saveOTP(email, otp)
+        await sendEmail(email, "Your OTP Code", `Your OTP is ${otp}. The OTP will expire in 2 minutes`)
         res.json({ msg: "OTP generated. Check your email." });
-        //background
-        sendEmail(email, "Your OTP Code", `Your OTP is ${otp}. The OTP will expire in 2 minutes`)
-            .then(() => console.log("Email sent successfully"))
-            .catch((err) => console.error("Email failed:", err));
 
     } catch (e) {
         return res.status(500).json({
