@@ -28,12 +28,12 @@ export const signup = async (req: Request, res: Response) => {
         await saveOTP(email, otp)
         await sendEmail(email, 'Your OTP Code', `Your OTP is ${otp}. The OTP will expire in 2 minutes`)
 
-        res.json({
+        return res.json({
             msg: "OTP sent to your email Successfully"
         })
 
     } catch (e) {
-        res.status(500).json({
+        return res.status(500).json({
             msg: "Something went wrong",
             error: (e as Error).message
         })

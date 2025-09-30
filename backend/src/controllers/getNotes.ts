@@ -9,11 +9,11 @@ export const getNotes = async (req: Request, res: Response) => {
 
     } try {
         const notes = await Note.find({ userId: id })
-        res.json({
+        return res.json({
             notes
         })
     } catch (e) {
-        res.status(500).json({
+        return res.status(500).json({
             message: "Something went wrong",
             error: (e as Error).message
         })

@@ -25,7 +25,7 @@ export const createNote = async (req: AuthRequest, res: Response) => {
             note
         })
     } catch (e) {
-        res.status(500).json({
+        return res.status(500).json({
             message: "Internal Server Error",
             error: (e as Error).message
         })

@@ -23,13 +23,13 @@ export const verifyOTPSignup = async (req: Request, res: Response) => {
         })
 
         const token = jwt.sign({ id: user._id }, process.env.JWT_STRING!, {expiresIn: '7d'})
-        res.json({
+        return res.json({
             msg: "User created successfully",
             token
         })
 
     } catch (e) {
-        res.status(500).json({
+        return res.status(500).json({
             msg: "Something went wrong",
             error: (e as Error).message
         })
@@ -52,13 +52,13 @@ export const verifyOTPSignin = async (req: Request, res: Response) => {
 
         const user = await User.findOne({email})
         const token = jwt.sign({ id: user?._id, name: user?.name }, process.env.JWT_STRING!, {expiresIn: '7d'})
-        res.json({
+        return res.json({
             msg: "User logged in successfully",
             token
         })
 
     } catch (e) {
-        res.status(500).json({
+        return res.status(500).json({
             msg: "Something went wrong",
             error: (e as Error).message
         })
