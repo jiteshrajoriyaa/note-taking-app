@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import { useEffect } from "react"
+import { FRONTEND_URL } from "../config"
 
 export const GoogleCallback = () => {
     const navigate = useNavigate()
@@ -13,10 +14,10 @@ export const GoogleCallback = () => {
         if (token && user) {
             localStorage.setItem('token', "Bearer " + token)
             localStorage.setItem('user', user)
-            navigate('/dashboard')
+            navigate(`${FRONTEND_URL}/dashboard`)
         } else {
             alert('login failed')
-            navigate('/')
+            navigate(`${FRONTEND_URL}/`)
         }
     }, [location, navigate])
 
