@@ -1,6 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import { useEffect } from "react"
-import { FRONTEND_URL } from "../config"
 
 export const GoogleCallback = () => {
     const navigate = useNavigate()
