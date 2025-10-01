@@ -12,8 +12,8 @@ function App () {
         <Route path="/" element={<Signup/>} />
         <Route path="/signin" element={<Signin/>} />
         <Route path="/dashboard" element={<Dashboard/>} />
-        <Route path={`/auth/google/callback`} element={<GoogleCallback/>} />
-        <Route path={`/create-note`} element={<CreateNote/>} />
+        <Route path="/auth/google/callback" element={<GoogleCallback/>} />
+        <Route path="/create-note" element={<CreateNote/>} />
       </Routes>
     </BrowserRouter>
   </>
