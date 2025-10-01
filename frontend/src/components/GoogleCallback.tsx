@@ -14,10 +14,10 @@ export const GoogleCallback = () => {
         if (token && user) {
             localStorage.setItem('token', "Bearer " + token)
             localStorage.setItem('user', user)
-            navigate(`${FRONTEND_URL}/dashboard`)
+            navigate(`/dashboard`)
         } else {
             alert('login failed')
-            navigate(`${FRONTEND_URL}/`)
+            navigate(`/`)
         }
     }, [location, navigate])
 

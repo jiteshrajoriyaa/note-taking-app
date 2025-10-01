@@ -4,7 +4,6 @@ import { Signin } from "./pages/Signin";
 import { Dashboard } from "./pages/Dashboard";
 import { GoogleCallback } from "./components/GoogleCallback";
 import { CreateNote } from "./components/createNote";
-import { FRONTEND_URL } from "./config";
 
 function App () {
   return <>
@@ -13,7 +12,7 @@ function App () {
         <Route path="/" element={<Signup/>} />
         <Route path="/signin" element={<Signin/>} />
         <Route path="/dashboard" element={<Dashboard/>} />
-        <Route path={`${FRONTEND_URL}/auth/google/callback`} element={<GoogleCallback/>} />
+        <Route path={`/auth/google/callback`} element={<GoogleCallback/>} />
         <Route path={`/create-note`} element={<CreateNote/>} />
       </Routes>
     </BrowserRouter>
